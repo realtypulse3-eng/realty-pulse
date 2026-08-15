@@ -62,11 +62,11 @@ export const LeadsList: React.FC<LeadsListProps> = ({ onRunAgent }) => {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold font-display text-slate-100 flex items-center gap-2.5">
+          <h1 className="text-2xl font-bold font-display text-zinc-100 flex items-center gap-2.5">
             <Users className="w-6 h-6 text-blue-400" />
             CRM Leads Management
           </h1>
-          <p className="text-xs text-slate-400 mt-1 font-mono">
+          <p className="text-xs text-zinc-400 mt-1 font-mono">
             {leads.length} Total Registered Leads in CRM
           </p>
         </div>
@@ -74,14 +74,14 @@ export const LeadsList: React.FC<LeadsListProps> = ({ onRunAgent }) => {
         <div className="flex items-center gap-3">
           <button
             onClick={() => onRunAgent('excel', 'Export CRM leads database to Excel spreadsheet')}
-            className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-medium border border-slate-700"
+            className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-zinc-200 text-xs font-medium border border-zinc-700"
           >
             <FileSpreadsheet className="w-4 h-4 text-emerald-400" /> Export Excel
           </button>
 
           <button
             onClick={handleCreateNewLead}
-            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-400 hover:to-cyan-400 text-slate-950 font-semibold text-xs shadow-lg shadow-blue-500/20"
+            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-400 hover:to-cyan-400 text-zinc-950 font-semibold text-xs shadow-lg shadow-blue-500/20"
           >
             <Plus className="w-4 h-4" /> Add Lead
           </button>
@@ -89,22 +89,22 @@ export const LeadsList: React.FC<LeadsListProps> = ({ onRunAgent }) => {
       </div>
 
       {/* Search & Filter */}
-      <div className="flex flex-wrap items-center justify-between gap-4 bg-slate-900/60 p-4 rounded-2xl border border-slate-800">
+      <div className="flex flex-wrap items-center justify-between gap-4 bg-zinc-900/60 p-4 rounded-2xl border border-zinc-800">
         <div className="relative flex-1 min-w-[240px]">
-          <Search className="w-4 h-4 absolute left-3.5 top-3 text-slate-500" />
+          <Search className="w-4 h-4 absolute left-3.5 top-3 text-zinc-500" />
           <input
             type="text"
             value={search}
             onChange={e => setSearch(e.target.value)}
             placeholder="Search leads by name or email..."
-            className="w-full bg-slate-950/80 border border-slate-800 focus:border-blue-500 rounded-xl pl-10 pr-4 py-2 text-xs text-slate-100"
+            className="w-full bg-zinc-950/80 border border-zinc-800 focus:border-blue-500 rounded-xl pl-10 pr-4 py-2 text-xs text-zinc-100"
           />
         </div>
 
         <select
           value={statusFilter}
           onChange={e => setStatusFilter(e.target.value)}
-          className="bg-slate-950/80 border border-slate-800 rounded-xl px-3 py-2 text-xs text-slate-200"
+          className="bg-zinc-950/80 border border-zinc-800 rounded-xl px-3 py-2 text-xs text-zinc-200"
         >
           <option value="all">All Qualification Statuses</option>
           <option value="hot">Hot Leads</option>
@@ -139,44 +139,44 @@ export const LeadsList: React.FC<LeadsListProps> = ({ onRunAgent }) => {
               <div>
                 <div className="flex items-start justify-between gap-2 mb-3">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-500 to-cyan-500 flex items-center justify-center text-slate-950 font-bold text-sm font-display shadow-md">
+                    <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-500 to-cyan-500 flex items-center justify-center text-zinc-950 font-bold text-sm font-display shadow-md">
                       {lead.name.substring(0, 2).toUpperCase()}
                     </div>
                     <div>
-                      <h3 className="font-bold text-slate-100 text-sm line-clamp-1">{lead.name}</h3>
-                      <span className="text-[11px] text-slate-400 font-mono block">{lead.source}</span>
+                      <h3 className="font-bold text-zinc-100 text-sm line-clamp-1">{lead.name}</h3>
+                      <span className="text-[11px] text-zinc-400 font-mono block">{lead.source}</span>
                     </div>
                   </div>
 
                   <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-bold font-mono uppercase ${
                     lead.status === 'hot'
                       ? 'bg-cyan-500/20 text-cyan-400 border border-cyan-500/30'
-                      : 'bg-slate-800 text-slate-400'
+                      : 'bg-zinc-800 text-zinc-400'
                   }`}>
                     {lead.status}
                   </span>
                 </div>
 
-                <div className="space-y-1.5 text-xs text-slate-300 my-4 p-3 rounded-xl bg-slate-950/60 border border-slate-800/80">
+                <div className="space-y-1.5 text-xs text-zinc-300 my-4 p-3 rounded-xl bg-zinc-950/60 border border-zinc-800/80">
                   <div className="flex items-center justify-between">
-                    <span className="text-slate-400">Budget Max:</span>
+                    <span className="text-zinc-400">Budget Max:</span>
                     <span className="font-bold font-mono text-cyan-400">${lead.budget_max.toLocaleString()}</span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-slate-400">Location:</span>
+                    <span className="text-zinc-400">Location:</span>
                     <span className="truncate max-w-[140px] font-medium">{lead.preferred_location || 'Flexible'}</span>
                   </div>
                   {lead.qualification_score && (
-                    <div className="flex items-center justify-between pt-1 border-t border-slate-800">
-                      <span className="text-slate-400">AI Score:</span>
+                    <div className="flex items-center justify-between pt-1 border-t border-zinc-800">
+                      <span className="text-zinc-400">AI Score:</span>
                       <span className="font-bold text-emerald-400 font-mono">{lead.qualification_score}%</span>
                     </div>
                   )}
                 </div>
               </div>
 
-              <div className="flex items-center justify-between pt-3 border-t border-slate-800/80">
-                <span className="text-[10px] text-slate-500 font-mono">
+              <div className="flex items-center justify-between pt-3 border-t border-zinc-800/80">
+                <span className="text-[10px] text-zinc-500 font-mono">
                   Added {new Date(lead.created_at).toLocaleDateString()}
                 </span>
                 <button

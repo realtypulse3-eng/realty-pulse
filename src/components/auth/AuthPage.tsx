@@ -109,15 +109,18 @@ export const AuthPage: React.FC<AuthPageProps> = ({ onSuccess }) => {
   };
 
   return (
-    <div className="min-h-screen w-screen bg-[#0A0A0C] text-[#E4E4E7] flex flex-col justify-between p-4 md:p-8 font-sans antialiased relative overflow-hidden selection:bg-[#8B5CF6] selection:text-white">
-      {/* Background Glow Orbs */}
-      <div className="fixed top-[-10%] left-[-10%] w-[600px] h-[600px] bg-[#8B5CF6]/10 rounded-full blur-[160px] pointer-events-none" />
-      <div className="fixed bottom-[-10%] right-[-10%] w-[600px] h-[600px] bg-[#6366F1]/10 rounded-full blur-[160px] pointer-events-none" />
+    <div className="min-h-screen w-screen bg-base text-[#EDEDF0] flex flex-col justify-between p-4 md:p-8 font-sans antialiased relative overflow-hidden selection:bg-[#8B5CF6] selection:text-white">
+      {/* Liquid morphism background */}
+      <div className="fixed inset-0 -z-10 pointer-events-none overflow-hidden">
+        <div className="liquid-orb animate-drift top-[-12%] left-[-8%] h-[560px] w-[560px] bg-[#7c3aed]/25" />
+        <div className="liquid-orb animate-drift-slow bottom-[-12%] right-[-8%] h-[560px] w-[560px] bg-[#4338ca]/25" />
+        <div className="liquid-orb animate-drift top-[30%] left-[45%] h-[420px] w-[420px] bg-[#312e81]/20" />
+      </div>
 
       {/* Top Header Branding */}
       <header className="flex items-center justify-between max-w-7xl w-full mx-auto z-10">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#8B5CF6] to-[#6366F1] flex items-center justify-center text-white shadow-lg shadow-[#8B5CF6]/25 shrink-0 font-bold text-xl">
+          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#a78bfa] to-[#6d28d9] flex items-center justify-center text-white shadow-lg shadow-[#8B5CF6]/25 shrink-0 font-bold text-xl">
             <Zap className="w-5 h-5 fill-current" />
           </div>
           <div>
@@ -130,9 +133,9 @@ export const AuthPage: React.FC<AuthPageProps> = ({ onSuccess }) => {
           </div>
         </div>
 
-        <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#161618] border border-[#27272A] text-xs text-[#A1A1AA]">
-          <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-          <span>Enterprise Gateway Active</span>
+        <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full glass-soft text-xs text-[#A1A1AA]">
+          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+          <span>Secure sign-in</span>
         </div>
       </header>
 
@@ -154,8 +157,8 @@ export const AuthPage: React.FC<AuthPageProps> = ({ onSuccess }) => {
           </p>
 
           <div className="space-y-3 pt-2">
-            <div className="flex items-start gap-3 p-3.5 rounded-2xl bg-[#161618]/90 border border-[#27272A] backdrop-blur-md">
-              <div className="p-2 rounded-xl bg-[#1D1D21] text-[#8B5CF6] shrink-0 border border-[#27272A]">
+            <div className="flex items-start gap-3 p-3.5 rounded-2xl glass-soft">
+              <div className="p-2 rounded-xl glass-soft text-[#a78bfa] shrink-0">
                 <ShieldCheck className="w-4 h-4" />
               </div>
               <div>
@@ -164,8 +167,8 @@ export const AuthPage: React.FC<AuthPageProps> = ({ onSuccess }) => {
               </div>
             </div>
 
-            <div className="flex items-start gap-3 p-3.5 rounded-2xl bg-[#161618]/90 border border-[#27272A] backdrop-blur-md">
-              <div className="p-2 rounded-xl bg-[#1D1D21] text-[#6366F1] shrink-0 border border-[#27272A]">
+            <div className="flex items-start gap-3 p-3.5 rounded-2xl glass-soft">
+              <div className="p-2 rounded-xl glass-soft text-[#a78bfa] shrink-0">
                 <Sparkles className="w-4 h-4" />
               </div>
               <div>
@@ -186,7 +189,7 @@ export const AuthPage: React.FC<AuthPageProps> = ({ onSuccess }) => {
                   key={user.id}
                   type="button"
                   onClick={() => handleDemoLogin(user.email)}
-                  className="flex items-center gap-2 p-2 rounded-xl bg-[#161618] hover:bg-[#1D1D21] border border-[#27272A] hover:border-[#8B5CF6]/50 text-left transition-all group"
+                  className="flex items-center gap-2 p-2 rounded-xl glass-soft hover:border-[#8B5CF6]/50 text-left transition-all group"
                 >
                   <img
                     src={user.avatar}
@@ -208,9 +211,9 @@ export const AuthPage: React.FC<AuthPageProps> = ({ onSuccess }) => {
         </div>
 
         {/* Right Form Card */}
-        <div className="lg:col-span-7 bg-[#161618] border border-[#27272A] rounded-2xl shadow-2xl p-6 md:p-8 backdrop-blur-xl relative">
+        <div className="glass-strong glass-glare lg:col-span-7 rounded-3xl p-6 md:p-8 relative">
           {/* Form Navigation Tabs */}
-          <div className="flex bg-[#0F0F12] p-1 rounded-xl border border-[#27272A] mb-6">
+          <div className="flex glass-soft p-1 rounded-2xl mb-6">
             <button
               type="button"
               onClick={() => {
@@ -220,7 +223,7 @@ export const AuthPage: React.FC<AuthPageProps> = ({ onSuccess }) => {
               }}
               className={`flex-1 py-2 rounded-lg text-xs font-semibold transition-all ${
                 mode === 'login'
-                  ? 'bg-[#1D1D21] text-[#E4E4E7] border border-[#8B5CF6]/40 shadow-sm'
+                  ? 'glass-soft text-[#EDEDF0]'
                   : 'text-[#71717A] hover:text-[#A1A1AA]'
               }`}
             >
@@ -235,7 +238,7 @@ export const AuthPage: React.FC<AuthPageProps> = ({ onSuccess }) => {
               }}
               className={`flex-1 py-2 rounded-lg text-xs font-semibold transition-all ${
                 mode === 'signup'
-                  ? 'bg-[#1D1D21] text-[#E4E4E7] border border-[#8B5CF6]/40 shadow-sm'
+                  ? 'glass-soft text-[#EDEDF0]'
                   : 'text-[#71717A] hover:text-[#A1A1AA]'
               }`}
             >
@@ -285,7 +288,7 @@ export const AuthPage: React.FC<AuthPageProps> = ({ onSuccess }) => {
                       value={fullName}
                       onChange={(e) => setFullName(e.target.value)}
                       placeholder="e.g. Sarah Connor"
-                      className="w-full bg-[#0F0F12] border border-[#27272A] focus:border-[#8B5CF6] rounded-xl pl-10 pr-4 py-2.5 text-xs text-[#E4E4E7] placeholder-[#71717A] focus:outline-none transition-all"
+                      className="w-full glass-soft focus:border-[#8B5CF6]/60 focus:ring-2 focus:ring-[#8B5CF6]/20 rounded-xl pl-10 pr-4 py-2.5 text-xs text-[#E4E4E7] placeholder-[#71717A] focus:outline-none transition-all"
                     />
                   </div>
                 </div>
@@ -301,7 +304,7 @@ export const AuthPage: React.FC<AuthPageProps> = ({ onSuccess }) => {
                       <select
                         value={role}
                         onChange={(e) => setRole(e.target.value as UserRole)}
-                        className="w-full bg-[#0F0F12] border border-[#27272A] focus:border-[#8B5CF6] rounded-xl pl-10 pr-4 py-2.5 text-xs text-[#E4E4E7] focus:outline-none transition-all appearance-none cursor-pointer"
+                        className="w-full glass-soft focus:border-[#8B5CF6]/60 focus:ring-2 focus:ring-[#8B5CF6]/20 rounded-xl pl-10 pr-4 py-2.5 text-xs text-[#E4E4E7] focus:outline-none transition-all appearance-none cursor-pointer"
                       >
                         <option value="broker">Managing Broker</option>
                         <option value="agent">Senior Agent</option>
@@ -322,7 +325,7 @@ export const AuthPage: React.FC<AuthPageProps> = ({ onSuccess }) => {
                         value={organizationName}
                         onChange={(e) => setOrganizationName(e.target.value)}
                         placeholder="Organization Name"
-                        className="w-full bg-[#0F0F12] border border-[#27272A] focus:border-[#8B5CF6] rounded-xl pl-10 pr-4 py-2.5 text-xs text-[#E4E4E7] placeholder-[#71717A] focus:outline-none transition-all"
+                        className="w-full glass-soft focus:border-[#8B5CF6]/60 focus:ring-2 focus:ring-[#8B5CF6]/20 rounded-xl pl-10 pr-4 py-2.5 text-xs text-[#E4E4E7] placeholder-[#71717A] focus:outline-none transition-all"
                       />
                     </div>
                   </div>
@@ -343,7 +346,7 @@ export const AuthPage: React.FC<AuthPageProps> = ({ onSuccess }) => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="broker@realtypulse.io"
-                  className="w-full bg-[#0F0F12] border border-[#27272A] focus:border-[#8B5CF6] rounded-xl pl-10 pr-4 py-2.5 text-xs text-[#E4E4E7] placeholder-[#71717A] focus:outline-none transition-all"
+                  className="w-full glass-soft focus:border-[#8B5CF6]/60 focus:ring-2 focus:ring-[#8B5CF6]/20 rounded-xl pl-10 pr-4 py-2.5 text-xs text-[#E4E4E7] placeholder-[#71717A] focus:outline-none transition-all"
                 />
               </div>
             </div>
@@ -361,7 +364,7 @@ export const AuthPage: React.FC<AuthPageProps> = ({ onSuccess }) => {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="••••••••••••"
-                  className="w-full bg-[#0F0F12] border border-[#27272A] focus:border-[#8B5CF6] rounded-xl pl-10 pr-10 py-2.5 text-xs text-[#E4E4E7] placeholder-[#71717A] focus:outline-none transition-all"
+                  className="w-full glass-soft focus:border-[#8B5CF6]/60 focus:ring-2 focus:ring-[#8B5CF6]/20 rounded-xl pl-10 pr-10 py-2.5 text-xs text-[#E4E4E7] placeholder-[#71717A] focus:outline-none transition-all"
                 />
                 <button
                   type="button"
@@ -386,7 +389,7 @@ export const AuthPage: React.FC<AuthPageProps> = ({ onSuccess }) => {
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
                     placeholder="••••••••••••"
-                    className="w-full bg-[#0F0F12] border border-[#27272A] focus:border-[#8B5CF6] rounded-xl pl-10 pr-4 py-2.5 text-xs text-[#E4E4E7] placeholder-[#71717A] focus:outline-none transition-all"
+                    className="w-full glass-soft focus:border-[#8B5CF6]/60 focus:ring-2 focus:ring-[#8B5CF6]/20 rounded-xl pl-10 pr-4 py-2.5 text-xs text-[#E4E4E7] placeholder-[#71717A] focus:outline-none transition-all"
                   />
                 </div>
               </div>
@@ -419,7 +422,7 @@ export const AuthPage: React.FC<AuthPageProps> = ({ onSuccess }) => {
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-3 rounded-xl bg-gradient-to-br from-[#8B5CF6] to-[#6366F1] hover:opacity-90 text-white font-semibold text-xs shadow-lg shadow-[#8B5CF6]/25 transition-all flex items-center justify-center gap-2 mt-2 disabled:opacity-50 cursor-pointer"
+              className="w-full py-3 rounded-xl bg-gradient-to-br from-[#a78bfa] to-[#6d28d9] hover:opacity-90 text-white font-semibold text-xs shadow-lg shadow-[#8B5CF6]/25 transition-all flex items-center justify-center gap-2 mt-2 disabled:opacity-50 cursor-pointer"
             >
               {loading ? (
                 <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />

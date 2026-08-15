@@ -69,7 +69,7 @@ export const DealsPipeline: React.FC<DealsPipelineProps> = ({ onRunAgent }) => {
     { id: 'negotiation', label: 'Negotiation', color: 'border-violet-500/40 text-violet-400' },
     { id: 'pending', label: 'Pending Closing', color: 'border-amber-500/40 text-amber-400' },
     { id: 'closed_won', label: 'Closed Won', color: 'border-emerald-500/40 text-emerald-400' },
-    { id: 'closed_lost', label: 'Closed Lost', color: 'border-slate-800 text-slate-500' },
+    { id: 'closed_lost', label: 'Closed Lost', color: 'border-zinc-800 text-zinc-500' },
   ];
 
   const totalValue = deals.reduce((sum, d) => sum + (d.deal_value || 0), 0);
@@ -80,11 +80,11 @@ export const DealsPipeline: React.FC<DealsPipelineProps> = ({ onRunAgent }) => {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold font-display text-slate-100 flex items-center gap-2.5">
+          <h1 className="text-2xl font-bold font-display text-zinc-100 flex items-center gap-2.5">
             <Briefcase className="w-6 h-6 text-violet-400" />
             Deals Financial Pipeline
           </h1>
-          <p className="text-xs text-slate-400 mt-1 font-mono">
+          <p className="text-xs text-zinc-400 mt-1 font-mono">
             Pipeline Volume: ${totalValue.toLocaleString()} | Potential Commission: ${totalCommission.toLocaleString()}
           </p>
         </div>
@@ -92,14 +92,14 @@ export const DealsPipeline: React.FC<DealsPipelineProps> = ({ onRunAgent }) => {
         <div className="flex items-center gap-3">
           <button
             onClick={() => onRunAgent('excel', 'Export closed deals and commission spreadsheet to Excel')}
-            className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-medium border border-slate-700"
+            className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-zinc-200 text-xs font-medium border border-zinc-700"
           >
             <FileSpreadsheet className="w-4 h-4 text-emerald-400" /> Export Excel
           </button>
 
           <button
             onClick={handleAddDeal}
-            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-violet-500 to-indigo-600 hover:from-violet-400 hover:to-indigo-500 text-slate-950 font-semibold text-xs shadow-lg shadow-violet-500/20"
+            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-violet-500 to-violet-600 hover:from-violet-400 hover:to-violet-500 text-zinc-950 font-semibold text-xs shadow-lg shadow-violet-500/20"
           >
             <Plus className="w-4 h-4" /> Create Deal
           </button>
@@ -123,31 +123,31 @@ export const DealsPipeline: React.FC<DealsPipelineProps> = ({ onRunAgent }) => {
 
             return (
               <div key={stage.id} className="min-w-[240px] flex flex-col space-y-3">
-                <div className={`p-3 rounded-xl bg-slate-900/80 border ${stage.color} flex items-center justify-between`}>
+                <div className={`p-3 rounded-xl bg-zinc-900/80 border ${stage.color} flex items-center justify-between`}>
                   <div>
                     <span className="font-bold text-xs uppercase tracking-wider block font-mono">{stage.label}</span>
-                    <span className="text-[10px] text-slate-400 font-mono">${stageValue.toLocaleString()} ({stageDeals.length})</span>
+                    <span className="text-[10px] text-zinc-400 font-mono">${stageValue.toLocaleString()} ({stageDeals.length})</span>
                   </div>
                 </div>
 
-                <div className="space-y-3 flex-1 min-h-[300px] p-2 rounded-2xl bg-slate-950/40 border border-slate-800/60">
+                <div className="space-y-3 flex-1 min-h-[300px] p-2 rounded-2xl bg-zinc-950/40 border border-zinc-800/60">
                   {stageDeals.length === 0 ? (
-                    <p className="text-[11px] text-slate-600 text-center py-10 font-mono">Stage empty</p>
+                    <p className="text-[11px] text-zinc-600 text-center py-10 font-mono">Stage empty</p>
                   ) : (
                     stageDeals.map(deal => (
                       <GlassCard key={deal.id} className="p-4 space-y-2.5" glow>
                         <div className="flex items-start justify-between gap-1">
-                          <h4 className="font-bold text-xs text-slate-100 line-clamp-1">
+                          <h4 className="font-bold text-xs text-zinc-100 line-clamp-1">
                             {deal.property_title || deal.id}
                           </h4>
                         </div>
 
                         <div className="text-xs space-y-1 font-mono">
                           <div className="text-emerald-400 font-bold">${deal.deal_value.toLocaleString()}</div>
-                          <div className="text-slate-400 text-[10px]">Comm: ${deal.commission.toLocaleString()}</div>
+                          <div className="text-zinc-400 text-[10px]">Comm: ${deal.commission.toLocaleString()}</div>
                         </div>
 
-                        <div className="pt-2 border-t border-slate-800/80 flex items-center justify-between gap-1">
+                        <div className="pt-2 border-t border-zinc-800/80 flex items-center justify-between gap-1">
                           {deal.status !== 'closed_won' && (
                             <button
                               onClick={() => handleStatusChange(deal.id, 'closed_won')}

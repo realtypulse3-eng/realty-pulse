@@ -20,18 +20,17 @@ export const GlassCard: React.FC<GlassCardProps> = ({
       id={id}
       onClick={onClick}
       className={`
-        relative overflow-hidden
-        bg-[#161618]/90 backdrop-blur-xl
-        border border-[#27272A] hover:border-[#3F3F46]
-        rounded-2xl shadow-xl shadow-black/60
-        transition-all duration-300
-        ${glow ? 'before:absolute before:inset-0 before:-z-10 before:bg-gradient-to-br before:from-[#8B5CF6]/15 before:via-transparent before:to-[#6366F1]/15 before:blur-xl' : ''}
-        ${onClick ? 'cursor-pointer hover:translate-y-[-2px] hover:border-[#8B5CF6]/50 hover:shadow-[#8B5CF6]/10' : ''}
+        glass glass-glare group relative overflow-hidden rounded-3xl
+        transition-all duration-500 ease-out
+        ${glow ? 'glow-accent' : ''}
+        ${onClick ? 'cursor-pointer hover:-translate-y-1 hover:border-white/15 hover:shadow-[0_36px_90px_-24px_rgba(0,0,0,0.9)]' : ''}
         ${className}
       `}
     >
-      {/* Subtle top glare highlight */}
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-zinc-500/20 to-transparent" />
+      {/* Liquid sheen that pools toward the pointer on hover */}
+      <div className="pointer-events-none absolute -inset-px opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+        <div className="absolute -left-1/3 top-0 h-full w-1/3 rotate-12 bg-gradient-to-r from-transparent via-white/[0.07] to-transparent blur-md" />
+      </div>
       {children}
     </div>
   );

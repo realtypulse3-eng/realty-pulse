@@ -39,11 +39,11 @@ export const MarketingView: React.FC = () => {
   return (
     <div className="p-6 md:p-8 max-w-5xl mx-auto space-y-6">
       <div>
-        <h1 className="text-2xl font-bold font-display text-slate-100 flex items-center gap-2.5">
+        <h1 className="text-2xl font-bold font-display text-zinc-100 flex items-center gap-2.5">
           <Megaphone className="w-6 h-6 text-violet-400" />
           Multi-Channel Marketing Copywriter
         </h1>
-        <p className="text-xs text-slate-400 mt-1 font-mono">
+        <p className="text-xs text-zinc-400 mt-1 font-mono">
           Generate factually aligned social captions, property brochures, and email campaigns from database records
         </p>
       </div>
@@ -51,43 +51,43 @@ export const MarketingView: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {/* Controls Form */}
         <GlassCard className="p-5 space-y-4">
-          <h3 className="text-sm font-bold text-slate-100 font-mono uppercase">Campaign Parameters</h3>
+          <h3 className="text-sm font-bold text-zinc-100 font-mono uppercase">Campaign Parameters</h3>
 
           <form onSubmit={handleGenerateCampaign} className="space-y-3 text-xs">
             <div>
-              <label className="block text-slate-300 font-medium mb-1">Listing Title</label>
+              <label className="block text-zinc-300 font-medium mb-1">Listing Title</label>
               <input
                 type="text"
                 value={propertyTitle}
                 onChange={e => setPropertyTitle(e.target.value)}
-                className="w-full bg-slate-950 border border-slate-800 focus:border-violet-500 rounded-xl px-3 py-2 text-slate-100"
+                className="w-full bg-zinc-950 border border-zinc-800 focus:border-violet-500 rounded-xl px-3 py-2 text-zinc-100"
               />
             </div>
 
             <div>
-              <label className="block text-slate-300 font-medium mb-1">Target Persona</label>
+              <label className="block text-zinc-300 font-medium mb-1">Target Persona</label>
               <input
                 type="text"
                 value={targetAudience}
                 onChange={e => setTargetAudience(e.target.value)}
-                className="w-full bg-slate-950 border border-slate-800 focus:border-violet-500 rounded-xl px-3 py-2 text-slate-100"
+                className="w-full bg-zinc-950 border border-zinc-800 focus:border-violet-500 rounded-xl px-3 py-2 text-zinc-100"
               />
             </div>
 
             <div>
-              <label className="block text-slate-300 font-medium mb-1">Distribution Channels</label>
+              <label className="block text-zinc-300 font-medium mb-1">Distribution Channels</label>
               <input
                 type="text"
                 value={channel}
                 onChange={e => setChannel(e.target.value)}
-                className="w-full bg-slate-950 border border-slate-800 focus:border-violet-500 rounded-xl px-3 py-2 text-slate-100"
+                className="w-full bg-zinc-950 border border-zinc-800 focus:border-violet-500 rounded-xl px-3 py-2 text-zinc-100"
               />
             </div>
 
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full mt-2 py-2.5 rounded-xl bg-gradient-to-r from-violet-500 to-purple-600 hover:from-violet-400 hover:to-purple-500 text-slate-950 font-bold text-xs flex items-center justify-center gap-2 shadow-lg shadow-violet-500/20"
+              className="w-full mt-2 py-2.5 rounded-xl bg-gradient-to-r from-violet-500 to-violet-600 hover:from-violet-400 hover:to-violet-500 text-zinc-950 font-bold text-xs flex items-center justify-center gap-2 shadow-lg shadow-violet-500/20"
             >
               <Sparkles className="w-4 h-4 fill-current" /> {isLoading ? 'Drafting Campaign...' : 'Generate Marketing Copy'}
             </button>
@@ -97,11 +97,11 @@ export const MarketingView: React.FC = () => {
         {/* Output Area */}
         <GlassCard className="p-5 md:col-span-2 space-y-3 flex flex-col justify-between">
           <div className="flex items-center justify-between">
-            <h3 className="text-sm font-bold text-slate-100 font-mono uppercase">Generated Copy Output</h3>
+            <h3 className="text-sm font-bold text-zinc-100 font-mono uppercase">Generated Copy Output</h3>
             {generatedCopy && (
               <button
                 onClick={handleCopy}
-                className="flex items-center gap-1.5 px-3 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-mono text-cyan-400"
+                className="flex items-center gap-1.5 px-3 py-1 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-xs font-mono text-cyan-400"
               >
                 {copied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
                 {copied ? 'Copied!' : 'Copy Copy'}
@@ -109,7 +109,7 @@ export const MarketingView: React.FC = () => {
             )}
           </div>
 
-          <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 text-xs text-slate-200 font-mono leading-relaxed whitespace-pre-wrap min-h-[260px] flex-1">
+          <div className="p-4 rounded-xl bg-zinc-950 border border-zinc-800 text-xs text-zinc-200 font-mono leading-relaxed whitespace-pre-wrap min-h-[260px] flex-1">
             {isLoading ? (
               <div className="h-full flex items-center justify-center text-violet-400 animate-pulse">
                 Drafting luxury property marketing campaign from database attributes...
@@ -117,7 +117,7 @@ export const MarketingView: React.FC = () => {
             ) : generatedCopy ? (
               generatedCopy
             ) : (
-              <span className="text-slate-500">
+              <span className="text-zinc-500">
                 Click "Generate Marketing Copy" to draft custom copy using facts from the property listing record.
               </span>
             )}

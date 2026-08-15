@@ -49,7 +49,6 @@ export const Sidebar: React.FC<SidebarProps> = ({
   onTabChange,
   collapsed: propCollapsed,
   onToggleCollapse: propOnToggleCollapse,
-  isSupabaseConnected = true,
 }) => {
   const [internalCollapsed, setInternalCollapsed] = React.useState(false);
   const collapsed = propCollapsed !== undefined ? propCollapsed : internalCollapsed;
@@ -80,26 +79,26 @@ export const Sidebar: React.FC<SidebarProps> = ({
   return (
     <aside
       className={`
-        relative flex flex-col justify-between
-        bg-[#0F0F12] backdrop-blur-2xl
-        border-r border-[#27272A] text-[#A1A1AA]
+        glass-strong relative flex flex-col justify-between
+        border-r border-white/5 text-[#A1A1AA]
         transition-all duration-300 z-30 shrink-0
         ${collapsed ? 'w-20' : 'w-64'}
       `}
     >
       {/* Top Branding Section */}
       <div>
-        <div className="flex items-center justify-between p-4 border-b border-[#27272A] h-16">
+        <div className="flex items-center justify-between p-4 border-b border-white/5 h-16">
           <div className="flex items-center gap-3 overflow-hidden">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#8B5CF6] to-[#6366F1] flex items-center justify-center text-white shadow-lg shadow-[#8B5CF6]/25 shrink-0 font-bold text-lg">
-              <Zap className="w-5 h-5 fill-current" />
+            <div className="relative w-10 h-10 rounded-2xl bg-gradient-to-br from-[#a78bfa] to-[#6d28d9] flex items-center justify-center text-white shadow-lg shadow-[#8B5CF6]/30 shrink-0">
+              <span className="absolute inset-0 rounded-2xl bg-white/10 blur-[2px]" />
+              <Zap className="relative w-5 h-5 fill-current" />
             </div>
             {!collapsed && (
               <div className="flex flex-col truncate">
-                <span className="font-semibold text-[#E4E4E7] text-base tracking-tight font-display">
-                  REALTY <span className="text-[#8B5CF6]">PULSE</span>
+                <span className="font-semibold text-[#EDEDF0] text-base tracking-tight font-display">
+                  REALTY <span className="text-[#a78bfa]">PULSE</span>
                 </span>
-                <span className="text-[10px] text-[#71717A] tracking-widest font-mono uppercase">
+                <span className="text-[10px] text-[#71717A] tracking-[0.2em] uppercase">
                   AI Real Estate OS
                 </span>
               </div>
@@ -108,7 +107,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
 
           <button
             onClick={onToggleCollapse}
-            className="p-1.5 rounded-lg text-[#71717A] hover:text-[#E4E4E7] hover:bg-[#18181B] transition-colors"
+            className="p-1.5 rounded-lg text-[#71717A] hover:text-[#EDEDF0] hover:bg-white/5 transition-colors"
             title={collapsed ? 'Expand sidebar' : 'Collapse sidebar'}
           >
             {collapsed ? <ChevronRight className="w-4 h-4" /> : <ChevronLeft className="w-4 h-4" />}
@@ -126,26 +125,26 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 id={`nav_btn_${item.id}`}
                 onClick={() => handleSelectTab(item.id)}
                 className={`
-                  w-full flex items-center gap-3.5 px-3.5 py-2.5 rounded-xl font-medium text-sm
-                  transition-all duration-200 group relative
+                  w-full flex items-center gap-3.5 px-3.5 py-2.5 rounded-2xl font-medium text-sm
+                  transition-all duration-300 group relative overflow-hidden
                   ${
                     isActive
-                      ? 'bg-[#1D1D21] text-[#E4E4E7] border border-[#8B5CF6]/40 shadow-sm'
-                      : 'text-[#A1A1AA] hover:text-[#E4E4E7] hover:bg-[#161618]'
+                      ? 'glass-soft text-[#EDEDF0] border-white/10'
+                      : 'text-[#A1A1AA] border border-transparent hover:text-[#EDEDF0] hover:bg-white/[0.04]'
                   }
                 `}
                 title={collapsed ? item.label : undefined}
               >
                 <Icon
                   className={`w-5 h-5 shrink-0 transition-colors ${
-                    isActive ? 'text-[#8B5CF6]' : 'text-[#71717A] group-hover:text-[#A1A1AA]'
+                    isActive ? 'text-[#a78bfa]' : 'text-[#71717A] group-hover:text-[#A1A1AA]'
                   }`}
                 />
                 {!collapsed && <span className="truncate">{item.label}</span>}
 
                 {/* Active Indicator Bar */}
                 {isActive && (
-                  <span className="absolute left-0 top-2 bottom-2 w-1 rounded-r-full bg-[#8B5CF6] shadow-sm shadow-[#8B5CF6]/50" />
+                  <span className="absolute left-0 top-1.5 bottom-1.5 w-1 rounded-r-full bg-gradient-to-b from-[#a78bfa] to-[#7c3aed] shadow-[0_0_12px_rgba(139,92,246,0.6)]" />
                 )}
               </button>
             );
@@ -153,27 +152,22 @@ export const Sidebar: React.FC<SidebarProps> = ({
         </nav>
       </div>
 
-      {/* Bottom Database Status */}
-      <div className="p-3 border-t border-[#27272A]">
+      {/* Bottom Status */}
+      <div className="p-3 border-t border-white/5">
         <div
           className={`
-            flex items-center gap-2.5 p-2.5 rounded-xl bg-[#161618] border border-[#27272A] text-xs
+            glass-soft flex items-center gap-2.5 p-2.5 rounded-2xl text-xs
             ${collapsed ? 'justify-center' : ''}
           `}
         >
-          <span
-            className={`w-2.5 h-2.5 rounded-full shrink-0 ${
-              isSupabaseConnected ? 'bg-emerald-500 animate-pulse shadow-sm shadow-emerald-500/80' : 'bg-amber-400'
-            }`}
-          />
+          <span className="relative flex h-2.5 w-2.5 shrink-0">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
+            <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-400 shadow-sm shadow-emerald-400/70" />
+          </span>
           {!collapsed && (
             <div className="flex flex-col overflow-hidden">
-              <span className="text-[#E4E4E7] font-medium truncate">
-                {isSupabaseConnected ? 'Supabase Live' : 'Database Ready'}
-              </span>
-              <span className="text-[10px] text-[#71717A] truncate font-mono">
-                {isSupabaseConnected ? 'PostgreSQL Connected' : 'Local / Supabase Mode'}
-              </span>
+              <span className="text-[#EDEDF0] font-medium truncate">All systems ready</span>
+              <span className="text-[10px] text-[#71717A] truncate">Realty Pulse workspace</span>
             </div>
           )}
         </div>

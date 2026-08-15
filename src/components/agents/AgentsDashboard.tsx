@@ -59,17 +59,17 @@ export const AgentsDashboard: React.FC<AgentsDashboardProps> = ({ onSelectAgent 
   return (
     <div className="p-6 md:p-8 space-y-8 max-w-7xl mx-auto">
       {/* Header */}
-      <div className="bg-gradient-to-r from-slate-900 via-slate-900/90 to-violet-950/40 p-6 rounded-2xl border border-slate-800 shadow-xl">
+      <div className="bg-gradient-to-r from-zinc-900 via-zinc-900/90 to-violet-950/40 p-6 rounded-2xl border border-zinc-800 shadow-xl">
         <div className="flex items-center gap-2 mb-1">
           <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-semibold bg-violet-500/10 text-violet-400 border border-violet-500/30">
             DIGITAL WORKFORCE
           </span>
-          <span className="text-xs text-slate-400 font-mono">12 Specialized AI Employees</span>
+          <span className="text-xs text-zinc-400 font-mono">12 Specialized AI Employees</span>
         </div>
-        <h1 className="text-2xl md:text-3xl font-bold text-slate-100 font-display">
+        <h1 className="text-2xl md:text-3xl font-bold text-zinc-100 font-display">
           RealtyPulse AI Agent Swarm
         </h1>
-        <p className="text-sm text-slate-400 mt-1 max-w-2xl leading-relaxed">
+        <p className="text-sm text-zinc-400 mt-1 max-w-2xl leading-relaxed">
           Interconnected domain-specific AI agents operating on live Supabase records. Each agent executes structured tools, logs task metrics, and enforces human approval safeguards.
         </p>
       </div>
@@ -92,21 +92,21 @@ export const AgentsDashboard: React.FC<AgentsDashboardProps> = ({ onSelectAgent 
                   <div className="p-3 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 group-hover:scale-110 transition-transform">
                     <Icon className="w-6 h-6" />
                   </div>
-                  <span className="px-2.5 py-1 rounded-full text-[10px] font-mono font-semibold bg-slate-950 text-cyan-400 border border-slate-800">
+                  <span className="px-2.5 py-1 rounded-full text-[10px] font-mono font-semibold bg-zinc-950 text-cyan-400 border border-zinc-800">
                     {agent.badge}
                   </span>
                 </div>
 
-                <h3 className="text-lg font-bold text-slate-100 group-hover:text-cyan-300 transition-colors">
+                <h3 className="text-lg font-bold text-zinc-100 group-hover:text-cyan-300 transition-colors">
                   {agent.name}
                 </h3>
                 <span className="text-[11px] text-cyan-400/80 font-mono block mb-2">{agent.role}</span>
-                <p className="text-xs text-slate-400 leading-relaxed mb-4">{agent.description}</p>
+                <p className="text-xs text-zinc-400 leading-relaxed mb-4">{agent.description}</p>
 
-                <div className="space-y-1 text-[11px] text-slate-300 bg-slate-950/60 p-3 rounded-xl border border-slate-800/80 mb-4">
-                  <span className="font-semibold text-slate-400 block mb-1 font-mono uppercase text-[10px]">Key Capabilities:</span>
+                <div className="space-y-1 text-[11px] text-zinc-300 bg-zinc-950/60 p-3 rounded-xl border border-zinc-800/80 mb-4">
+                  <span className="font-semibold text-zinc-400 block mb-1 font-mono uppercase text-[10px]">Key Capabilities:</span>
                   {agent.capabilities.slice(0, 2).map((cap, i) => (
-                    <div key={i} className="flex items-start gap-1.5 text-slate-300">
+                    <div key={i} className="flex items-start gap-1.5 text-zinc-300">
                       <CheckCircle2 className="w-3 h-3 text-cyan-400 shrink-0 mt-0.5" />
                       <span className="truncate">{cap}</span>
                     </div>
@@ -114,8 +114,8 @@ export const AgentsDashboard: React.FC<AgentsDashboardProps> = ({ onSelectAgent 
                 </div>
               </div>
 
-              <div className="pt-3 border-t border-slate-800/80 flex items-center justify-between">
-                <span className="text-xs text-slate-500 font-mono">
+              <div className="pt-3 border-t border-zinc-800/80 flex items-center justify-between">
+                <span className="text-xs text-zinc-500 font-mono">
                   {completedCount === 0 ? 'No tasks yet' : `${completedCount} Tasks Completed`}
                 </span>
                 <span className="text-xs font-semibold text-cyan-400 flex items-center gap-1 group-hover:translate-x-1 transition-transform">

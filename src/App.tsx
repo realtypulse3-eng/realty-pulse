@@ -66,10 +66,21 @@ export function App() {
   }
 
   return (
-    <div className="flex h-screen w-screen overflow-hidden bg-[#0A0A0C] text-[#E4E4E7] font-sans antialiased selection:bg-[#8B5CF6] selection:text-white">
-      {/* Background Ambient Glow Effects */}
-      <div className="fixed top-0 left-1/4 w-[600px] h-[600px] bg-[#8B5CF6]/5 rounded-full blur-[140px] pointer-events-none" />
-      <div className="fixed bottom-0 right-1/4 w-[600px] h-[600px] bg-[#6366F1]/5 rounded-full blur-[140px] pointer-events-none" />
+    <div className="relative flex h-screen w-screen overflow-hidden bg-base text-[#EDEDF0] font-sans antialiased selection:bg-[#8B5CF6] selection:text-white">
+      {/* Liquid morphism ambient field */}
+      <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+        <div className="liquid-orb animate-drift left-[-8%] top-[-10%] h-[520px] w-[520px] bg-[#7C3AED]/25" />
+        <div className="liquid-orb animate-drift-slow right-[-6%] top-[18%] h-[460px] w-[460px] bg-[#4338CA]/20" />
+        <div className="liquid-orb animate-drift bottom-[-14%] left-[38%] h-[600px] w-[600px] bg-[#312E81]/25" />
+        <div
+          className="absolute inset-0 opacity-[0.04]"
+          style={{
+            backgroundImage:
+              'radial-gradient(circle at 1px 1px, #ffffff 1px, transparent 0)',
+            backgroundSize: '32px 32px',
+          }}
+        />
+      </div>
 
       {/* Primary Sidebar Navigation */}
       <Sidebar

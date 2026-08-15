@@ -49,7 +49,7 @@ export const DocumentsView: React.FC = () => {
 
         <button
           onClick={handleAddDoc}
-          className="flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-br from-[#8B5CF6] to-[#6366F1] hover:opacity-90 text-white font-semibold text-xs shadow-lg shadow-[#8B5CF6]/20 transition-all hover:scale-[1.02]"
+          className="flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-br from-[#8B5CF6] to-[#8B5CF6] hover:opacity-90 text-white font-semibold text-xs shadow-lg shadow-[#8B5CF6]/20 transition-all hover:scale-[1.02]"
         >
           <Plus className="w-4 h-4" /> Add Document Record
         </button>

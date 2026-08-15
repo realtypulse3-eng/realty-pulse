@@ -65,7 +65,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenAgent, onNavigateToRecord,
   };
 
   return (
-    <header className="h-16 border-b border-[#27272A] bg-[#0F0F12] backdrop-blur-xl px-6 flex items-center justify-between z-20 shrink-0">
+    <header className="glass-strong h-16 border-b border-white/5 px-6 flex items-center justify-between z-20 shrink-0">
       {/* Search Input Bar */}
       <div className="relative w-72 md:w-96">
         <div className="relative flex items-center">
@@ -74,8 +74,8 @@ export const Header: React.FC<HeaderProps> = ({ onOpenAgent, onNavigateToRecord,
             type="text"
             value={searchQuery}
             onChange={(e) => handleSearch(e.target.value)}
-            placeholder="Global Search properties, leads, deals..."
-            className="w-full bg-[#18181B] border border-[#27272A] focus:border-[#8B5CF6] rounded-full pl-10 pr-4 py-1.5 text-sm text-[#E4E4E7] placeholder-[#71717A] focus:outline-none transition-all"
+            placeholder="Search properties, leads, deals..."
+            className="glass-soft w-full rounded-full pl-10 pr-4 py-2 text-sm text-[#EDEDF0] placeholder-[#71717A] focus:outline-none focus:border-[#8B5CF6]/60 focus:ring-2 focus:ring-[#8B5CF6]/20 transition-all"
           />
           {searchQuery && (
             <button
@@ -89,7 +89,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenAgent, onNavigateToRecord,
 
         {/* Global Search Results Dropdown */}
         {isSearching && (
-          <div className="absolute top-full left-0 right-0 mt-2 bg-[#161618] border border-[#27272A] rounded-2xl shadow-2xl p-3 z-50 backdrop-blur-2xl max-h-96 overflow-y-auto">
+          <div className="absolute top-full left-0 right-0 mt-2 glass-strong rounded-2xl shadow-2xl p-3 z-50 backdrop-blur-2xl max-h-96 overflow-y-auto">
             {searchResults.properties.length === 0 && searchResults.leads.length === 0 && searchResults.deals.length === 0 ? (
               <p className="text-xs text-[#71717A] text-center py-4">No matching records found.</p>
             ) : (
@@ -129,7 +129,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenAgent, onNavigateToRecord,
                           }}
                           className="flex items-center gap-2.5 p-2 rounded-xl hover:bg-[#1D1D21] cursor-pointer text-xs text-[#E4E4E7]"
                         >
-                          <Users className="w-3.5 h-3.5 text-[#6366F1] shrink-0" />
+                          <Users className="w-3.5 h-3.5 text-[#8B5CF6] shrink-0" />
                           <span className="truncate flex-1 font-medium">{l.name}</span>
                           <span className="text-[#A1A1AA] font-mono">{l.status}</span>
                         </div>
@@ -170,9 +170,9 @@ export const Header: React.FC<HeaderProps> = ({ onOpenAgent, onNavigateToRecord,
         {/* Quick Command Agent Button */}
         <button
           onClick={() => onOpenAgent('command')}
-          className="flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-[#1D1D21] hover:bg-[#27272A] border border-[#8B5CF6]/40 text-[#E4E4E7] text-xs font-semibold shadow-sm transition-all hover:scale-[1.02]"
+          className="flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-[#7c3aed] to-[#6d28d9] hover:from-[#8b5cf6] hover:to-[#7c3aed] text-white text-xs font-semibold glow-accent transition-all hover:scale-[1.03]"
         >
-          <Sparkles className="w-3.5 h-3.5 text-[#8B5CF6] animate-pulse" />
+          <Sparkles className="w-3.5 h-3.5 animate-pulse" />
           <span className="hidden sm:inline">AI Command Agent</span>
         </button>
 
@@ -195,7 +195,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenAgent, onNavigateToRecord,
 
           {/* Notifications Panel */}
           {showNotifications && (
-            <div className="absolute right-0 mt-2 w-80 bg-[#161618] border border-[#27272A] rounded-2xl shadow-2xl p-4 z-50 backdrop-blur-2xl">
+            <div className="absolute right-0 mt-2 w-80 glass-strong rounded-2xl shadow-2xl p-4 z-50 backdrop-blur-2xl">
               <div className="flex items-center justify-between pb-3 border-b border-[#27272A] mb-2">
                 <span className="font-semibold text-xs text-[#E4E4E7]">System Notifications</span>
                 <span className="text-[10px] text-[#71717A] font-mono">{unreadCount} unread</span>
@@ -262,7 +262,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenAgent, onNavigateToRecord,
 
           {/* User Profile Dropdown Menu */}
           {showUserMenu && (
-            <div className="absolute right-0 mt-2 w-64 bg-[#161618] border border-[#27272A] rounded-2xl shadow-2xl p-3 z-50 backdrop-blur-2xl space-y-2">
+            <div className="absolute right-0 mt-2 w-64 glass-strong rounded-2xl shadow-2xl p-3 z-50 backdrop-blur-2xl space-y-2">
               <div className="p-2 bg-[#0F0F12] rounded-xl border border-[#27272A]">
                 <div className="font-semibold text-xs text-[#E4E4E7]">{currentUser?.name}</div>
                 <div className="text-[11px] text-[#71717A] font-mono truncate">{currentUser?.email}</div>

@@ -56,18 +56,18 @@ export const AppointmentsCalendar: React.FC<AppointmentsCalendarProps> = ({ onRu
     <div className="p-6 md:p-8 space-y-6 max-w-7xl mx-auto">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold font-display text-slate-100 flex items-center gap-2.5">
+          <h1 className="text-2xl font-bold font-display text-zinc-100 flex items-center gap-2.5">
             <CalendarIcon className="w-6 h-6 text-cyan-400" />
             Calendar & Property Viewings
           </h1>
-          <p className="text-xs text-slate-400 mt-1 font-mono">
+          <p className="text-xs text-zinc-400 mt-1 font-mono">
             {appointments.length} Total Scheduled Property Walkthroughs
           </p>
         </div>
 
         <button
           onClick={handleAddAppointment}
-          className="flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-semibold text-xs shadow-lg shadow-cyan-500/20"
+          className="flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-zinc-950 font-semibold text-xs shadow-lg shadow-cyan-500/20"
         >
           <Plus className="w-4 h-4" /> Schedule Viewing
         </button>
@@ -88,28 +88,28 @@ export const AppointmentsCalendar: React.FC<AppointmentsCalendarProps> = ({ onRu
               <div className="flex items-start justify-between gap-2">
                 <div>
                   <span className="text-[10px] font-mono text-cyan-400 uppercase font-semibold">Scheduled Viewing</span>
-                  <h3 className="font-bold text-slate-100 text-sm">{appt.property_title || appt.property_id}</h3>
+                  <h3 className="font-bold text-zinc-100 text-sm">{appt.property_title || appt.property_id}</h3>
                 </div>
                 <span className="px-2 py-0.5 rounded-full text-[10px] font-mono bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
                   {appt.status}
                 </span>
               </div>
 
-              <div className="p-3 rounded-xl bg-slate-950/60 border border-slate-800/80 text-xs space-y-2">
-                <div className="flex items-center gap-2 text-slate-300">
+              <div className="p-3 rounded-xl bg-zinc-950/60 border border-zinc-800/80 text-xs space-y-2">
+                <div className="flex items-center gap-2 text-zinc-300">
                   <Clock className="w-3.5 h-3.5 text-cyan-400" />
                   <span className="font-mono">
                     {new Date(appt.start_time).toLocaleString([], { dateStyle: 'short', timeStyle: 'short' })}
                   </span>
                 </div>
                 {appt.client_name && (
-                  <div className="flex items-center gap-2 text-slate-300">
+                  <div className="flex items-center gap-2 text-zinc-300">
                     <User className="w-3.5 h-3.5 text-blue-400" />
                     <span>{appt.client_name}</span>
                   </div>
                 )}
                 {appt.notes && (
-                  <p className="text-[11px] text-slate-400 pt-1 border-t border-slate-800 leading-relaxed">{appt.notes}</p>
+                  <p className="text-[11px] text-zinc-400 pt-1 border-t border-zinc-800 leading-relaxed">{appt.notes}</p>
                 )}
               </div>
 

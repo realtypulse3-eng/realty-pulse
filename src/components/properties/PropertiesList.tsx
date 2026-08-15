@@ -42,11 +42,11 @@ export const PropertiesList: React.FC<PropertiesListProps> = ({ onRunAgent }) =>
       {/* Header Bar */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold font-display text-slate-100 flex items-center gap-2.5">
+          <h1 className="text-2xl font-bold font-display text-zinc-100 flex items-center gap-2.5">
             <Building2 className="w-6 h-6 text-cyan-400" />
             Property Inventory
           </h1>
-          <p className="text-xs text-slate-400 mt-1 font-mono">
+          <p className="text-xs text-zinc-400 mt-1 font-mono">
             {properties.length} Total Properties stored in database
           </p>
         </div>
@@ -54,14 +54,14 @@ export const PropertiesList: React.FC<PropertiesListProps> = ({ onRunAgent }) =>
         <div className="flex items-center gap-3">
           <button
             onClick={() => onRunAgent('excel', 'Export all active property listings to Excel workbook')}
-            className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-medium border border-slate-700"
+            className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-zinc-200 text-xs font-medium border border-zinc-700"
           >
             <FileSpreadsheet className="w-4 h-4 text-emerald-400" /> Export Excel
           </button>
 
           <button
             onClick={() => setIsAddOpen(true)}
-            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-semibold text-xs shadow-lg shadow-cyan-500/20"
+            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-zinc-950 font-semibold text-xs shadow-lg shadow-cyan-500/20"
           >
             <Plus className="w-4 h-4" /> Add Property
           </button>
@@ -69,15 +69,15 @@ export const PropertiesList: React.FC<PropertiesListProps> = ({ onRunAgent }) =>
       </div>
 
       {/* Filter & Search Controls */}
-      <div className="flex flex-wrap items-center justify-between gap-4 bg-slate-900/60 p-4 rounded-2xl border border-slate-800">
+      <div className="flex flex-wrap items-center justify-between gap-4 bg-zinc-900/60 p-4 rounded-2xl border border-zinc-800">
         <div className="relative flex-1 min-w-[240px]">
-          <Search className="w-4 h-4 absolute left-3.5 top-3 text-slate-500" />
+          <Search className="w-4 h-4 absolute left-3.5 top-3 text-zinc-500" />
           <input
             type="text"
             value={search}
             onChange={e => setSearch(e.target.value)}
             placeholder="Search by title, city, or address..."
-            className="w-full bg-slate-950/80 border border-slate-800 focus:border-cyan-500 rounded-xl pl-10 pr-4 py-2 text-xs text-slate-100"
+            className="w-full bg-zinc-950/80 border border-zinc-800 focus:border-cyan-500 rounded-xl pl-10 pr-4 py-2 text-xs text-zinc-100"
           />
         </div>
 
@@ -85,7 +85,7 @@ export const PropertiesList: React.FC<PropertiesListProps> = ({ onRunAgent }) =>
           <select
             value={typeFilter}
             onChange={e => setTypeFilter(e.target.value)}
-            className="bg-slate-950/80 border border-slate-800 rounded-xl px-3 py-2 text-xs text-slate-200"
+            className="bg-zinc-950/80 border border-zinc-800 rounded-xl px-3 py-2 text-xs text-zinc-200"
           >
             <option value="all">All Types</option>
             <option value="condo">Condo / Apartment</option>
@@ -97,7 +97,7 @@ export const PropertiesList: React.FC<PropertiesListProps> = ({ onRunAgent }) =>
           <select
             value={statusFilter}
             onChange={e => setStatusFilter(e.target.value)}
-            className="bg-slate-950/80 border border-slate-800 rounded-xl px-3 py-2 text-xs text-slate-200"
+            className="bg-zinc-950/80 border border-zinc-800 rounded-xl px-3 py-2 text-xs text-zinc-200"
           >
             <option value="all">All Statuses</option>
             <option value="active">Active</option>
@@ -140,8 +140,8 @@ export const PropertiesList: React.FC<PropertiesListProps> = ({ onRunAgent }) =>
                       alt={p.title}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent" />
-                    <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-mono font-semibold uppercase bg-slate-950/80 backdrop-blur-md text-cyan-300 border border-slate-800">
+                    <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent" />
+                    <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-mono font-semibold uppercase bg-zinc-950/80 backdrop-blur-md text-cyan-300 border border-zinc-800">
                       {p.property_type}
                     </span>
                     <span
@@ -156,29 +156,29 @@ export const PropertiesList: React.FC<PropertiesListProps> = ({ onRunAgent }) =>
                   </div>
 
                   <div className="p-5">
-                    <h3 className="text-base font-bold text-slate-100 group-hover:text-cyan-400 transition-colors line-clamp-1">
+                    <h3 className="text-base font-bold text-zinc-100 group-hover:text-cyan-400 transition-colors line-clamp-1">
                       {p.title}
                     </h3>
-                    <p className="text-xs text-slate-400 flex items-center gap-1 mt-1">
+                    <p className="text-xs text-zinc-400 flex items-center gap-1 mt-1">
                       <MapPin className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
                       {p.address}, {p.city}
                     </p>
 
-                    <div className="flex items-center gap-4 text-xs text-slate-300 mt-4 pt-3 border-t border-slate-800/80">
+                    <div className="flex items-center gap-4 text-xs text-zinc-300 mt-4 pt-3 border-t border-zinc-800/80">
                       <span className="flex items-center gap-1">
-                        <Bed className="w-3.5 h-3.5 text-slate-500" /> {p.bedrooms}
+                        <Bed className="w-3.5 h-3.5 text-zinc-500" /> {p.bedrooms}
                       </span>
                       <span className="flex items-center gap-1">
-                        <Bath className="w-3.5 h-3.5 text-slate-500" /> {p.bathrooms}
+                        <Bath className="w-3.5 h-3.5 text-zinc-500" /> {p.bathrooms}
                       </span>
                       <span className="flex items-center gap-1">
-                        <Maximize2 className="w-3.5 h-3.5 text-slate-500" /> {p.area.toLocaleString()} sqft
+                        <Maximize2 className="w-3.5 h-3.5 text-zinc-500" /> {p.area.toLocaleString()} sqft
                       </span>
                     </div>
                   </div>
                 </div>
 
-                <div className="p-5 pt-0 flex items-center justify-between border-t border-slate-800/80 mt-2 pt-3">
+                <div className="p-5 pt-0 flex items-center justify-between border-t border-zinc-800/80 mt-2 pt-3">
                   <span className="text-lg font-bold font-display text-cyan-400">
                     ${p.price.toLocaleString()}
                   </span>
